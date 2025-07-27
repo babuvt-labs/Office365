@@ -1,20 +1,24 @@
-# SharePoint Online - Block Download Policy Script
+# SharePoint Online Block Download Policy Script
 
-This PowerShell script helps **enforce or remove a download block policy** on a SharePoint Online site using the **SharePoint Online Management Shell**. It is especially useful for protecting sensitive content by preventing users from downloading documents from a site.
+This script automates the process of applying a **Block Download Policy** to a SharePoint Online site. This policy prevents users from downloading content from the specified site, with the option to exclude site owners if desired.
 
 ---
 
-##Features
+## **Prerequisites**
+1. **PowerShell** installed on your machine.
+2. **SharePoint Online Management Shell** module installed.
+   - If not installed, run:
+     ```powershell
+     Install-Module -Name Microsoft.Online.SharePoint.PowerShell -Force
+     ```
+3. Administrator credentials for your SharePoint Online tenant.
 
-- Block downloads for a specific SharePoint Online site
-- Optionally **exclude site owners** from this restriction
-- Remove the block policy when no longer required
-- Verify policy status with a single command
-- Admin-friendly step-by-step format
+---
 
+## **Usage**
 
+### **Step 1: Set Tenant Name**
+Replace `<yourtenant>` with your tenant's prefix (e.g., `contoso`, `fabrikam`):
+```powershell
+$tenantName = "<yourtenant>"
 
-📄 File Structure
-- sharepoint-block-download-policy/
-├── Set-BlockDownloadPolicy.ps1    # Full script
-└── README.md                      # Documentation (this file)
