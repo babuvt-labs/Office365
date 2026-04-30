@@ -139,3 +139,63 @@ VBA Project is unprotected!
 After closing the message:
 - Return to the VBA editor
 - The VBA project should now be accessible
+
+
+---
+
+# Remove VBA Password Using HEX Editor
+
+Another free and easy way to remove the VBA password from your Excel file is by using a HEX editor.
+
+A HEX Editor is a lightweight third-party tool that allows you to edit the binary data that makes up a VBA project in Excel.
+
+In this method, you open the VBA project in a HEX editor and replace the unknown password with a known one so you can unlock the project.
+
+---
+
+## Steps to Remove Password Using HEX Editor
+
+1. Go to the folder containing the Excel file with the locked VBA project.
+2. Change the file extension from `.xlsm` to `.zip`.
+3. Open the ZIP folder.
+4. Navigate to the `xl` folder and open it.
+5. Locate `vbaProject.bin`.
+6. Copy this file and paste it outside the ZIP folder.
+7. Open your HEX editor.
+8. Open the copied `vbaProject.bin` file in the HEX editor.
+9. Press `Ctrl + F` to open the Find dialog.
+10. Search for `DPB`.
+11. You will see a binary string after `DPB` (inside quotes).
+12. Replace the string inside the quotes with:
+
+```
+0A08A6B1B6CEB6CE4932B7CE4B63A66D37B84BA3D4BAD58A6B495254585A5D3D675777675D
+```
+
+> If the existing string length is different, pad the replacement string with zeros to match the length.
+
+13. Save the file and close the HEX editor.
+14. Copy the modified `vbaProject.bin`.
+15. Go back to the ZIP → `xl` folder and replace the original file.
+16. Rename the file extension from `.zip` back to `.xlsm`.
+17. Open the Excel file.
+18. Open the VBA Editor.
+19. Use password: `123` to unlock the project.
+
+---
+
+## Notes
+
+- You can keep the project locked and use `123` as the password, or remove the password completely after unlocking.
+- Try the VBA macro method first. If it doesn’t work, use the HEX editor method as an alternative.
+
+---
+
+## Summary
+
+These are two simple methods to remove a VBA project password:
+
+- VBA Macro Method
+- HEX Editor Method
+
+If you know any other methods, feel free to share them.
